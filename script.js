@@ -1,4 +1,53 @@
 alert("JS WORKING");
+/* ═══════════════════════════════════════
+   IRMIYA BULUS — portfolio script.js
+═══════════════════════════════════════ */
+
+// ── helpers ──
+const $ = id => document.getElementById(id);
+const $$ = s  => document.querySelector(s);
+const $$$ = s => document.querySelectorAll(s);
+
+// ── year ──
+$("year").textContent = new Date().getFullYear();
+
+// ── theme toggle ──
+const themeBtn  = $("themeToggle");
+const body      = document.body;
+const moonIcon  = "bi-moon-stars";
+const sunIcon   = "bi-sun";
+
+// load saved theme
+const saved = localStorage.getItem("theme");
+if (saved === "light") applyLight();
+
+function applyLight() {
+  body.classList.add("light");
+  themeBtn.querySelector("i").className = `bi ${sunIcon}`;
+}
+function applyDark() {
+  body.classList.remove("light");
+  themeBtn.querySelector("i").className = `bi ${moonIcon}`;
+}
+
+themeBtn.addEventListener("click", () => {
+  if (body.classList.contains("light")) {
+    applyDark();
+    localStorage.setItem("theme", "dark");
+  } else {
+    applyLight();
+    localStorage.setItem("theme", "light");
+  }
+});
+
+// ── mobile hamburger ──
+const hamburger = $("hamburger");
+const navLinks  = $("nav-links");
+
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("open");
+  navLinks.classList.toggle("open");
+});
 
 // close menu on nav link click
 $$$(".nav-link").forEach(link => {
