@@ -347,6 +347,12 @@ body {
   opacity: .4;
 }
 
+.section-about{
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
+gap: 20px;
+}
+
 .section-label {
   font-family: var(--font-mono);
   font-size: .78rem;
@@ -414,6 +420,8 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+  position: relative;
+  top: 10px;
 }
 .stat {
   text-align: center;
